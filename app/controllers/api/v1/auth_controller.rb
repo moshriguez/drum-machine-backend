@@ -3,11 +3,15 @@ class Api::V1::AuthController < ApplicationController
 
     def create
         user = User.find_by(username: params[:username])
-        if user&.authenticate(user_login_params[:password])
-            token = encode_token({user_id: user.id})
-            render json: {user: UserSerializer.new(user), jwt: token}, status: :accepted
+        if user
+            if user.authenticate(user_login_params[:password])
+                token = encode_token({user_id: user.id})
+                render json: {user: UserSerializer.new(user), jwt: token}, status: :accepted
+            else
+                render json: {error: 'Your password is not correct my dude. Try again...'}, status: :unauthorized
+            end
         else
-            render json: {error: 'The username or password is incorrect'}, status: :unauthorized
+            render json: {error: 'We do not have a record of that username. Double check your spelling and try again.'}, status: :unauthorized
         end
     end
 
