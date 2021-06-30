@@ -7,8 +7,8 @@ class ApplicationController < ActionController::API
     end
 
     def decoded_token
-        header = request.headers["Authorization"]
-        token = header.split(" ")[1] if header
+        header = request.headers['Authorization']
+        token = header.split(' ')[1] if header
         begin
             JWT.decode(token, 'my_s3cr3t')[0]
         rescue JWT::DecodeError
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::API
 
     def current_user
         if decoded_token
-            user_id = decoded_token[0]['user_id']
-            @user = User.find_by(id: user_id)
+            user_id = decoded_token['user_id']
+            user = User.find_by(id: user_id)
         end
     end
 
