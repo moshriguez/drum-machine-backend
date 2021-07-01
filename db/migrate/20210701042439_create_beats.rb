@@ -4,7 +4,7 @@ class CreateBeats < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.float :tempo
-      t.user :references
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
