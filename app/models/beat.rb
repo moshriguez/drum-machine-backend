@@ -7,4 +7,7 @@ class Beat < ApplicationRecord
     has_many :beat_pads
     has_many :pads, through: :beat_pads
 
+    validates :name, presence: true, uniqueness: { scope: :user, case_sensitive: false }
+    validates :description, presence: true
+
 end
