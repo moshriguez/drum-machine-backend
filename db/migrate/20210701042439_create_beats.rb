@@ -3,6 +3,7 @@ class CreateBeats < ActiveRecord::Migration[6.1]
     create_table :beats do |t|
       t.string :name
       t.string :description
+      t.float :tempo
       t.user :references
 
       t.timestamps

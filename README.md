@@ -12,6 +12,7 @@ Bio
 Beat:
 Name
 Description
+tempo
 User_id
 Comment:
 User_id

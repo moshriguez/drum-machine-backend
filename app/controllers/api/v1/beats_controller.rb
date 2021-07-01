@@ -8,4 +8,9 @@ class Api::V1::BeatsController < ApplicationController
             render json: {error: beat.errors.full_messages}, status: :unprocessable_entity
         end
     end
+
+    private
+    def beat_params
+        params.permit(:name, :description, :user_id)
+    end
 end
