@@ -29,24 +29,24 @@ Volume
 
 ## User Stories:
 Users will be able to:
-[] Create a new user
-[] Username will have uniqueness and length validations
-    [] Password will have a length requirement and require an upper case, a lower case and a number
-    [] Login as an existing user with username and password
-[] See a drum machine user interface with 4 different instruments and a 4 pad sequencer dividing one measure into 4 quarter notes in 4/4 time
-[] Press play to hear the drum loop
-[] Click on a button to select an individual drum
-[] Drum machine user interface will have an options section that will be reused for each drum
+[x] Create a new user
+[x] Username will have uniqueness and length validations
+    [x] Password will have a length requirement and require an upper case, a lower case and a number
+    [x] Login as an existing user with username and password
+[x] See a drum machine user interface with 4 different instruments and a 4 pad sequencer dividing one measure into 4 quarter notes in 4/4 time
+[x] Press play to hear the drum loop
+[x] Click on a button to select an individual drum
+[x] Drum machine user interface will have an options section that will be reused for each drum
 [] Using the options section, users will be able to:
-[] Change the pattern for each instrument
-[] Change the volume for each instrument
-[] Change the tempo for the drum loop
-[] Play button becomes the stop button during playback and stops the loop when clicked
-[] Click save to give the beat a name, description and persist the data to the DB
+    [x] Change the pattern for each instrument
+    [x] Change the volume for each instrument
+    [x] Change the tempo for the drum loop
+    [x] Play button becomes the stop button during playback and stops the loop when clicked
+    [] Click save to give the beat a name, description and persist the data to the DB
 [] Beat will have presence and uniqueness validation for a given user
 [] Each instrument will have its own save button to save the beat-pad
 [] View their personal profile page
-    [] Contains bio
+    [x] Contains bio
     [] Saved beats and links to them
     [] Feed with most recently saved beats and links to view beats
 [] Edit bio from personal profile page
