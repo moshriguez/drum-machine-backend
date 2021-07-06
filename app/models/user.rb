@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :beats, dependent: :destroy
 
-    has_many :comments
+    has_many :comments, dependent: :destroy
     has_many :commented_beats, through: :comments
 
     validates :username, presence: true, uniqueness: { case_sensitive: false }
