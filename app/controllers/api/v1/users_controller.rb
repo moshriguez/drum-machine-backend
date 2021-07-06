@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:index, :show, :create]
+    skip_before_action :authorized, only: [:index, :create]
 
     def index
         users = User.all.map {|user| UserSerializer.new(user)}
@@ -14,6 +14,20 @@ class Api::V1::UsersController < ApplicationController
         else
             render json: { error: user.errors.full_messages }, status: :not_acceptable
         end
+    end
+
+    def update
+        puts user_params
+        user = current_user.update(user_params)
+        if user
+            render json: {user: UserSerializer.new(current_user)}, status: :accepted
+        else
+            render json: {errors: user.errors.full_messages}, status: :not_acceptable
+        end
+    end
+
+    def destroy
+        current_user.destroy
     end
 
     def profile
