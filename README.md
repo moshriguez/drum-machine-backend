@@ -45,12 +45,12 @@ Users will be able to:
     [] Click save to give the beat a name, description and persist the data to the DB
 [] Beat will have presence and uniqueness validation for a given user
 [] Each instrument will have its own save button to save the beat-pad
-[] View their personal profile page
+[x] View their personal profile page
     [x] Contains bio
-    [] Saved beats and links to them
-    [] Feed with most recently saved beats and links to view beats
-[] Edit bio from personal profile page
-[] Delete account
+    [x] Saved beats and links to them
+    [x] Feed with most recently saved beats and links to view beats
+[x] Edit bio from personal profile page
+[x] Delete account
 [] View another user’s page to view their bio, list of user’s beats and list of most recent comments the user made
 
 ## Stretch Goals:
