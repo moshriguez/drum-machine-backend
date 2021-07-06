@@ -4,8 +4,10 @@ class Api::V1::BeatsController < ApplicationController
 
     def index
         beats = Beat.all
+        recent_beats = beats[-5, beats.length].map {|beat| BeatSerializer.new(beat)}
+        
         # only returns the 5 most recently created beats
-        render json: {beats: beats[-5, beats.length]}
+        render json: {feed: recent_beats}
     end
 
     def create
