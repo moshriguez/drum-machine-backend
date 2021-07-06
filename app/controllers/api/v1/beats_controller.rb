@@ -1,6 +1,5 @@
 class Api::V1::BeatsController < ApplicationController
-    skip_before_action :authorized, only: [:index]
-
+    skip_before_action :authorized, only: [:show]
 
     def index
         beats = Beat.all
@@ -8,6 +7,15 @@ class Api::V1::BeatsController < ApplicationController
         
         # only returns the 5 most recently created beats
         render json: {feed: recent_beats}
+    end
+
+    def show
+        beat = Beat.find_by(id: params[:id])
+        if beat
+            render json: {beat: BeatSerializer.new(beat)}
+        else
+            render json: {error: beat.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def create
