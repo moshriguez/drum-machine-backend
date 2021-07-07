@@ -1,9 +1,18 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:index, :create]
+    skip_before_action :authorized, only: [:show, :create]
 
     def index
         users = User.all.map {|user| UserSerializer.new(user)}
         render json: {users: users}
+    end
+
+    def show
+        user = User.find_by(id: params[:id])
+        if user
+            render json: {user: UserSerializer.new(user)}
+        else
+            render json: {error: user.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def create
