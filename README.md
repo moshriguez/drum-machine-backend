@@ -6,26 +6,26 @@ User -------------< Beat --< Beat-Pad >-- Pad
    ---< Comments >---
 
 User:
-Username
-Password_digest
-Bio
+    Username
+    Password_digest
+    Bio
 Beat:
-Name
-Description
-tempo
-User_id
+    Name
+    Description
+    tempo
+    User_id
 Comment:
-User_id
-Beat_id
-Content
+    User_id
+    Beat_id
+    Content
 Pad:
-Name
-Sample_file
+    Name
+    Sample_file
 Beat-Pad:
-Beat_id
-Pad_id
-Sequence
-Volume
+    Beat_id
+    Pad_id
+    Sequence
+    Volume
 
 ## User Stories:
 Users will be able to:
@@ -37,14 +37,16 @@ Users will be able to:
 [x] Press play to hear the drum loop
 [x] Click on a button to select an individual drum
 [x] Drum machine user interface will have an options section that will be reused for each drum
-[] Using the options section, users will be able to:
+[x] Using the options section, users will be able to:
     [x] Change the pattern for each instrument
     [x] Change the volume for each instrument
     [x] Change the tempo for the drum loop
     [x] Play button becomes the stop button during playback and stops the loop when clicked
-    [] Click save to give the beat a name, description and persist the data to the DB
-[] Beat will have presence and uniqueness validation for a given user
-[] Each instrument will have its own save button to save the beat-pad
+    [x] Click save to give the beat a name, description and persist the data to the DB
+[x] Beat will have presence and uniqueness validation for a given user
+[x] Each instrument will have its own save button to save the beat-pad
+[x]  Comments on a beat
+[x]  View all comments on a beat
 [x] View their personal profile page
     [x] Contains bio
     [x] Saved beats and links to them
@@ -55,7 +57,7 @@ Users will be able to:
 
 ## Stretch Goals:
 [] Add up to 10 instruments
-[] Add up to 16 pads to create one measure that is subdivided into 16th notes in 4/4 time
+[x] Add up to 16 pads to create one measure that is subdivided into 16th notes in 4/4 time
 [] Ability to program beats longer than one measure
 [] Ability to program beats in other time signatures
 [] Add panning for each instrument
@@ -69,4 +71,5 @@ Users will be able to:
 [] User’s feed includes commenting activity
 [] User’s feed includes following activity
 [] Responsive to different screen sizes
-[] Change to one save button to save whole beat
+[x] Change to one save button to save whole beat
+[]  Add musical influences to User model/profile
