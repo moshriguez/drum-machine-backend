@@ -51,7 +51,7 @@ Users will be able to:
     [x] Feed with most recently saved beats and links to view beats
 [x] Edit bio from personal profile page
 [x] Delete account
-[] View another user’s page to view their bio, list of user’s beats and list of most recent comments the user made
+[x] View another user’s page to view their bio, list of user’s beats and list of most recent comments the user made
 
 ## Stretch Goals:
 [] Add up to 10 instruments
