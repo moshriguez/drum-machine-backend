@@ -1,5 +1,5 @@
 class Api::V1::BeatsController < ApplicationController
-    skip_before_action :authorized, only: [:show, :create]
+    skip_before_action :authorized, only: [:show, :create, :update]
 
     def index
         beats = Beat.all
@@ -36,7 +36,20 @@ class Api::V1::BeatsController < ApplicationController
     end
 
     def update
-        
+        beat = Beat.find(params[:id])
+        pad1 = beat.beat_pads.find{|bp| bp.pad_id == 1}
+        pad2 = beat.beat_pads.find{|bp| bp.pad_id == 2}
+        pad3 = beat.beat_pads.find{|bp| bp.pad_id == 3}
+        pad4 = beat.beat_pads.find{|bp| bp.pad_id == 4}
+        if beat.update(beat_params)
+            pad1.update(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence])
+            pad2.update(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence])
+            pad3.update(volume: params[:pad3][:volume], sequence: params[:pad3][:sequence])
+            pad4.update(volume: params[:pad4][:volume], sequence: params[:pad4][:sequence])
+            render json: {beat: BeatSerializer.new(beat), message: 'Your beat was saved successfully.'}, status: :created
+        else
+            render json: {error: beat.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     private
