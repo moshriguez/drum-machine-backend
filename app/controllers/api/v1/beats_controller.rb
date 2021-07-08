@@ -1,5 +1,5 @@
 class Api::V1::BeatsController < ApplicationController
-    skip_before_action :authorized, only: [:show, :create, :update]
+    # skip_before_action :authorized, only: [:show, :create, :update]
 
     def index
         beats = Beat.all
