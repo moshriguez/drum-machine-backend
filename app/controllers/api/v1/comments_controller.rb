@@ -3,7 +3,7 @@ class Api::V1::CommentsController < ApplicationController
     def create
         comment = Comment.new(comment_params)
         if comment.save
-            render json: {comment: comment}, status: :created
+            render json: {comment: CommentSerializer.new(comment)}, status: :created
         else
             render json: {error: comment.errors.full_messages}, status: :unprocessable_entity
         end
