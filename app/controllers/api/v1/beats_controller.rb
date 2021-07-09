@@ -20,16 +20,27 @@ class Api::V1::BeatsController < ApplicationController
 
     def create
         beat = Beat.new(beat_params)
-        pad1 = Pad.find(5)
-        pad2 = Pad.find(6)
-        pad3 = Pad.find(7)
-        pad4 = Pad.find(8)
-        pad5 = Pad.find(9)
-        pad6 = Pad.find(10)
-        pad7 = Pad.find(11)
-        pad8 = Pad.find(12)
-        pad9 = Pad.find(13)
-        pad10 = Pad.find(14)
+        pad1 = Pad.find_by(name: 'Kick1')
+        pad2 = Pad.find_by(name: 'Kick2')
+        pad3 = Pad.find_by(name: 'Snare')
+        pad4 = Pad.find_by(name: 'Clap')
+        pad5 = Pad.find_by(name: 'Rim')
+        pad6 = Pad.find_by(name: 'HH1')
+        pad7 = Pad.find_by(name: 'HH2')
+        pad8 = Pad.find_by(name: 'HH Open')
+        pad9 = Pad.find_by(name: 'Ride')
+        pad10 = Pad.find_by(name: 'Shaker')
+        # pad1 = Pad.find(params[:pad1][:pad_id])
+        # pad2 = Pad.find(params[:pad2][:pad_id])
+        # pad3 = Pad.find(params[:pad3][:pad_id])
+        # pad4 = Pad.find(params[:pad4][:pad_id])
+        # pad5 = Pad.find(params[:pad5][:pad_id])
+        # pad6 = Pad.find(params[:pad6][:pad_id])
+        # pad7 = Pad.find(params[:pad7][:pad_id])
+        # pad8 = Pad.find(params[:pad8][:pad_id])
+        # pad9 = Pad.find(params[:pad9][:pad_id])
+        # pad10 = Pad.find(params[:pad10][:pad_id])
+      
         if beat.save
             BeatPad.create(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence], beat_id: beat.id, pad_id: pad1.id)
             BeatPad.create(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence], beat_id: beat.id, pad_id: pad2.id)
@@ -49,16 +60,26 @@ class Api::V1::BeatsController < ApplicationController
 
     def update
         beat = Beat.find(params[:id])
-        pad1 = beat.beat_pads.find{|bp| bp.pad_id == 5}
-        pad2 = beat.beat_pads.find{|bp| bp.pad_id == 6}
-        pad3 = beat.beat_pads.find{|bp| bp.pad_id == 7}
-        pad4 = beat.beat_pads.find{|bp| bp.pad_id == 8}
-        pad5 = beat.beat_pads.find{|bp| bp.pad_id == 9}
-        pad6 = beat.beat_pads.find{|bp| bp.pad_id == 10}
-        pad7 = beat.beat_pads.find{|bp| bp.pad_id == 11}
-        pad8 = beat.beat_pads.find{|bp| bp.pad_id == 12}
-        pad9 = beat.beat_pads.find{|bp| bp.pad_id == 13}
-        pad10 = beat.beat_pads.find{|bp| bp.pad_id == 14}
+        # pad1 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad1][:pad_id]}
+        # pad2 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad2][:pad_id]}
+        # pad3 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad3][:pad_id]}
+        # pad4 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad4][:pad_id]}
+        # pad5 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad5][:pad_id]}
+        # pad6 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad6][:pad_id]}
+        # pad7 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad7][:pad_id]}
+        # pad8 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad8][:pad_id]}
+        # pad9 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad9][:pad_id]}
+        # pad10 = beat.beat_pads.find{|bp| bp.pad_id == params[:pad10][:pad_id]}
+        pad1 = BeatPad.find(params[:pad1][:id])
+        pad2 = BeatPad.find(params[:pad2][:id])
+        pad3 = BeatPad.find(params[:pad3][:id])
+        pad4 = BeatPad.find(params[:pad4][:id])
+        pad5 = BeatPad.find(params[:pad5][:id])
+        pad6 = BeatPad.find(params[:pad6][:id])
+        pad7 = BeatPad.find(params[:pad7][:id])
+        pad8 = BeatPad.find(params[:pad8][:id])
+        pad9 = BeatPad.find(params[:pad9][:id])
+        pad10 = BeatPad.find(params[:pad10][:id])
         if beat.update(beat_params)
             pad1.update(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence])
             pad2.update(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence])

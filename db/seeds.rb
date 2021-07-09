@@ -16,16 +16,16 @@ Pad.destroy_all
 
 puts 'Creating beats...'
 
-kick1 = Pad.find(5)
-kick2 = Pad.find(6)
-snare = Pad.find(7)
-clap = Pad.find(8)
-rim = Pad.find(9)
-hh1 = Pad.find(10)
-hh2 = Pad.find(11)
-hh_open = Pad.find(12)
-ride = Pad.find(13)
-shaker = Pad.find(14)
+kick1 = Pad.find_by(name: 'Kick1')
+kick2 = Pad.find_by(name: 'Kick2')
+snare = Pad.find_by(name: 'Snare')
+clap = Pad.find_by(name: 'Clap')
+rim = Pad.find_by(name: 'Rim')
+hh1 = Pad.find_by(name: 'HH1')
+hh2 = Pad.find_by(name: 'HH2')
+hh_open = Pad.find_by(name: 'HH Open')
+ride = Pad.find_by(name: 'Ride')
+shaker = Pad.find_by(name: 'Shaker')
 
 # In case you need to create the pads again:
 # kick1 = Pad.create(name: 'Kick1', sample_file: 'SB15_Drm_bd.wav')
