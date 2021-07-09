@@ -42,16 +42,16 @@ class Api::V1::BeatsController < ApplicationController
         # pad10 = Pad.find(params[:pad10][:pad_id])
       
         if beat.save
-            BeatPad.create(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence], beat_id: beat.id, pad_id: pad1.id)
-            BeatPad.create(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence], beat_id: beat.id, pad_id: pad2.id)
-            BeatPad.create(volume: params[:pad3][:volume], sequence: params[:pad3][:sequence], beat_id: beat.id, pad_id: pad3.id)
-            BeatPad.create(volume: params[:pad4][:volume], sequence: params[:pad4][:sequence], beat_id: beat.id, pad_id: pad4.id)
-            BeatPad.create(volume: params[:pad5][:volume], sequence: params[:pad5][:sequence], beat_id: beat.id, pad_id: pad5.id)
-            BeatPad.create(volume: params[:pad6][:volume], sequence: params[:pad6][:sequence], beat_id: beat.id, pad_id: pad6.id)
-            BeatPad.create(volume: params[:pad7][:volume], sequence: params[:pad7][:sequence], beat_id: beat.id, pad_id: pad7.id)
-            BeatPad.create(volume: params[:pad8][:volume], sequence: params[:pad8][:sequence], beat_id: beat.id, pad_id: pad8.id)
-            BeatPad.create(volume: params[:pad9][:volume], sequence: params[:pad9][:sequence], beat_id: beat.id, pad_id: pad9.id)
-            BeatPad.create(volume: params[:pad10][:volume], sequence: params[:pad10][:sequence], beat_id: beat.id, pad_id: pad10.id)
+            BeatPad.create(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence], beat_id: beat.id, pad_id: pad1.id, panning: params[:pad1][:panning], pitch: params[:pad1][:pitch])
+            BeatPad.create(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence], beat_id: beat.id, pad_id: pad2.id, panning: params[:pad2][:panning], pitch: params[:pad2][:pitch])
+            BeatPad.create(volume: params[:pad3][:volume], sequence: params[:pad3][:sequence], beat_id: beat.id, pad_id: pad3.id, panning: params[:pad3][:panning], pitch: params[:pad3][:pitch])
+            BeatPad.create(volume: params[:pad4][:volume], sequence: params[:pad4][:sequence], beat_id: beat.id, pad_id: pad4.id, panning: params[:pad4][:panning], pitch: params[:pad4][:pitch])
+            BeatPad.create(volume: params[:pad5][:volume], sequence: params[:pad5][:sequence], beat_id: beat.id, pad_id: pad5.id, panning: params[:pad6][:panning], pitch: params[:pad6][:pitch])
+            BeatPad.create(volume: params[:pad6][:volume], sequence: params[:pad6][:sequence], beat_id: beat.id, pad_id: pad6.id, panning: params[:pad7][:panning], pitch: params[:pad7][:pitch])
+            BeatPad.create(volume: params[:pad7][:volume], sequence: params[:pad7][:sequence], beat_id: beat.id, pad_id: pad7.id, panning: params[:pad8][:panning], pitch: params[:pad8][:pitch])
+            BeatPad.create(volume: params[:pad8][:volume], sequence: params[:pad8][:sequence], beat_id: beat.id, pad_id: pad8.id, panning: params[:pad9][:panning], pitch: params[:pad9][:pitch])
+            BeatPad.create(volume: params[:pad9][:volume], sequence: params[:pad9][:sequence], beat_id: beat.id, pad_id: pad9.id, panning: params[:pad10][:panning], pitch: params[:pad10][:pitch])
+            BeatPad.create(volume: params[:pad10][:volume], sequence: params[:pad10][:sequence], beat_id: beat.id, pad_id: pad10.id, panning: params[:pad1][:panning], pitch: params[:pad1][:pitch])
             render json: {beat: BeatSerializer.new(beat), message: 'Your beat was saved successfully.'}, status: :created
         else
             render json: {error: beat.errors.full_messages}, status: :unprocessable_entity
@@ -81,16 +81,16 @@ class Api::V1::BeatsController < ApplicationController
         pad9 = BeatPad.find(params[:pad9][:id])
         pad10 = BeatPad.find(params[:pad10][:id])
         if beat.update(beat_params)
-            pad1.update(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence])
-            pad2.update(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence])
-            pad3.update(volume: params[:pad3][:volume], sequence: params[:pad3][:sequence])
-            pad4.update(volume: params[:pad4][:volume], sequence: params[:pad4][:sequence])
-            pad5.update(volume: params[:pad5][:volume], sequence: params[:pad5][:sequence])
-            pad6.update(volume: params[:pad6][:volume], sequence: params[:pad6][:sequence])
-            pad7.update(volume: params[:pad7][:volume], sequence: params[:pad7][:sequence])
-            pad8.update(volume: params[:pad8][:volume], sequence: params[:pad8][:sequence])
-            pad9.update(volume: params[:pad9][:volume], sequence: params[:pad9][:sequence])
-            pad10.update(volume: params[:pad10][:volume], sequence: params[:pad10][:sequence])
+            pad1.update(volume: params[:pad1][:volume], sequence: params[:pad1][:sequence], panning: params[:pad1][:panning], pitch: params[:pad1][:pitch] )
+            pad2.update(volume: params[:pad2][:volume], sequence: params[:pad2][:sequence], panning: params[:pad2][:panning], pitch: params[:pad2][:pitch] )
+            pad3.update(volume: params[:pad3][:volume], sequence: params[:pad3][:sequence], panning: params[:pad3][:panning], pitch: params[:pad3][:pitch] )
+            pad4.update(volume: params[:pad4][:volume], sequence: params[:pad4][:sequence], panning: params[:pad4][:panning], pitch: params[:pad4][:pitch] )
+            pad5.update(volume: params[:pad5][:volume], sequence: params[:pad5][:sequence], panning: params[:pad5][:panning], pitch: params[:pad5][:pitch] )
+            pad6.update(volume: params[:pad6][:volume], sequence: params[:pad6][:sequence], panning: params[:pad6][:panning], pitch: params[:pad6][:pitch] )
+            pad7.update(volume: params[:pad7][:volume], sequence: params[:pad7][:sequence], panning: params[:pad7][:panning], pitch: params[:pad7][:pitch] )
+            pad8.update(volume: params[:pad8][:volume], sequence: params[:pad8][:sequence], panning: params[:pad8][:panning], pitch: params[:pad8][:pitch] )
+            pad9.update(volume: params[:pad9][:volume], sequence: params[:pad9][:sequence], panning: params[:pad9][:panning], pitch: params[:pad9][:pitch] )
+            pad10.update(volume: params[:pad10][:volume], sequence: params[:pad10][:sequence], panning: params[:pad10][:panning], pitch: params[:pad10][:pitch] )
             render json: {beat: BeatSerializer.new(beat), message: 'Your beat was saved successfully.'}, status: :created
         else
             render json: {error: beat.errors.full_messages}, status: :unprocessable_entity
