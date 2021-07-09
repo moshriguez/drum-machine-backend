@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_043223) do
+ActiveRecord::Schema.define(version: 2021_07_09_203621) do
 
   create_table "beat_pads", force: :cascade do |t|
     t.integer "pad_id", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_07_01_043223) do
     t.float "volume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "panning"
+    t.float "pitch"
     t.index ["beat_id"], name: "index_beat_pads_on_beat_id"
     t.index ["pad_id"], name: "index_beat_pads_on_pad_id"
   end
@@ -56,6 +58,8 @@ ActiveRecord::Schema.define(version: 2021_07_01_043223) do
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "musical_influences"
+    t.string "avatar"
   end
 
   add_foreign_key "beat_pads", "beats"

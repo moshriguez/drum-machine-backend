@@ -1,5 +1,5 @@
 class BeatPadSerializer < ActiveModel::Serializer
-    attributes :id, :volume, :sequence, :pad_id, :beat_id
+    attributes :id, :volume, :sequence, :panning, :pitch, :pad_id, :beat_id
     belongs_to :beat
     belongs_to :pad
       
