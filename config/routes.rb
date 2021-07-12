@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :beats, only: [:index, :show, :create, :update]
       resources :comments, only: [:create]
       resources :beat_pads
-      resources :pads
+      resources :pads, only: [:index]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
     end
