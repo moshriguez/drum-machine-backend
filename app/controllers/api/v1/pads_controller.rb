@@ -1,5 +1,5 @@
 class Api::V1::PadsController < ApplicationController
-    skip_before_action :authorized, only: [:index]
+    skip_before_action :authorized, only: [:index, :create]
 
     def index
         pads = Pad.all.sort { |a, b| a.sample_type <=> b.sample_type }
@@ -9,7 +9,7 @@ class Api::V1::PadsController < ApplicationController
     def create
         pad = Pad.new(pad_params)
         if pad.save
-            render json: { pad: PadSerializer.new(pad) }, status: :created
+            render json: { pad: PadSerializer.new(pad), message: 'Your sample was saved successfully.' }, status: :created
         else
             render json: { error: pad.errors.full_messages }, status: :not_acceptable
         end
